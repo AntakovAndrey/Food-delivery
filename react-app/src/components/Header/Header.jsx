@@ -1,6 +1,7 @@
 //import Search from '../Search/Search'
 import styles from'./Header.module.css'
 import {Link} from 'react-router-dom'
+import React from 'react'
 
 function Header(props)
 {
