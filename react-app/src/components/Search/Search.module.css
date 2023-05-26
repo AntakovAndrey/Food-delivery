@@ -1,0 +1,26 @@
+.container
+{
+    border: 3px solid #F78888;
+    background-color: #F78888;
+    padding: 5px;
+    border-radius: 10px;
+    width: 70%;
+}
+
+.search_input
+{
+    color: #696969;
+    height: 30px;
+    width: 90%;
+}
+
+.search_button
+{
+    color: #e5e4e4;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #ff7676;
+    height: 30px;
+    width: 10%;
+}
