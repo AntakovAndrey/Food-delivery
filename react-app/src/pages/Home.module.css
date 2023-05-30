@@ -4,12 +4,3 @@
     display: flex;
     justify-content: center;
 }
-.container
-{
-    display:flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;   
-}
