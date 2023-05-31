@@ -399,3 +399,9 @@ FodyWeavers.xsd
 
 # React environmental files
 *.env
+
+#Visual Studio files
+*.sln
+*.sln
+appsettiings.json
+appsettiings.Development.json
