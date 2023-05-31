@@ -402,6 +402,5 @@ FodyWeavers.xsd
 
 #Visual Studio files
 *.sln
-*.sln
 appsettiings.json
 appsettiings.Development.json
