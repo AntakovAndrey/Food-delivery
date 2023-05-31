@@ -404,3 +404,5 @@ FodyWeavers.xsd
 *.sln
 appsettiings.json
 appsettiings.Development.json
+WebAPI/appsettings.Development.json
+WebAPI/appsettings.json
