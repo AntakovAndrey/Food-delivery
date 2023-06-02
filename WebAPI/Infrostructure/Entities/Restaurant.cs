@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Infrostructure.Entities
 {
-    class Restaurant
+    public class Restaurant
     {
         public int Id {get;set;}
         [Required]
@@ -11,7 +12,8 @@ namespace WebAPI.Infrostructure.Entities
         public double Rating {get;set;}
         [Required]
         public string? PhotoURL { get;set;}
-        [Required]
-        public RestaurantCategory? Category { get;set;}
+        public int CategoryId { get;set;}
+		[Required]
+		public RestaurantCategory Category { get;set;}
     }
 }
