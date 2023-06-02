@@ -399,5 +399,10 @@ FodyWeavers.xsd
 
 # React environmental files
 *.env
-/WebAPI/appsettings.Development.json
-/WebAPI/appsettings.json
+
+#Visual Studio files
+*.sln
+appsettiings.json
+appsettiings.Development.json
+WebAPI/appsettings.Development.json
+WebAPI/appsettings.json
