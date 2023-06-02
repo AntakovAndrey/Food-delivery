@@ -30,12 +30,22 @@ function HomePageContent()
     }
   }
 
-    const [restaurants, setRestaurants] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    const [restaurants, setRestaurants] = useState(requestRestaurants);
+    const [isLoading, setIsLoading] = useState(false);
+
+  setRestaurants(requestRestaurants);
+
 
     useEffect(() => {
-        setIsLoading(true)
+        
+      if(restaurants===null)
+      {
         setRestaurants(requestRestaurants());
+        if(restaurants===null)
+        {
+          setIsLoading(true)
+        }
+      } 
     }, [])
 
       if(isLoading===false)
@@ -51,7 +61,6 @@ function HomePageContent()
       }
       else
       {
-        
         return (<p>Загрузка</p>)
       }
 }
