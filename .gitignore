@@ -398,6 +398,7 @@ FodyWeavers.xsd
 *.sln.iml
 
 # React environmental files
+<<<<<<< HEAD
 *.env
 
 #Visual Studio files
@@ -406,3 +407,6 @@ appsettiings.json
 appsettiings.Development.json
 WebAPI/appsettings.Development.json
 WebAPI/appsettings.json
+=======
+*.env
+>>>>>>> parent of f8a8459 (gitignore)
