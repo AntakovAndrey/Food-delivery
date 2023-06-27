@@ -29,6 +29,7 @@ function Login()
         localStorage.setItem("email", data.email);
         localStorage.setItem("id", data.id);
         localStorage.setItem("cartId", data.cartId);
+        localStorage.setItem("role", data.role.name);
         navigate('/')
         }
       } catch (error) {
