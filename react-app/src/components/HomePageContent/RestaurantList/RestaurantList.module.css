@@ -1,0 +1,14 @@
+.container
+{
+    margin-top: 15px;
+}
+
+.category_list_container
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

@@ -1,0 +1,66 @@
+.container
+{
+    height: 100vh;
+    background-color: #2E2929;
+    display: flex;
+    justify-content: center;
+}
+.login_form
+{
+    margin-top: 100px;
+    height: 400px;
+    width: 420px;
+    border-radius: 10px;
+    background-color: #ECECEC;
+}
+
+.title_container
+{
+    margin-top: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title_container h1{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.inputs_container
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.inputs_container input
+{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button_container
+{
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit_button
+{
+    background-color: #D9D9D9;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius:10px;
+}
+
+.link_container
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
