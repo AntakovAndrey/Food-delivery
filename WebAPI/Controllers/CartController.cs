@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Infrastructure;
 using WebAPI.Infrastructure.Entities;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -19,17 +21,20 @@ namespace WebAPI.Controllers
             return carts;
         }
 
-        [HttpPost("AddItemToCart")]
-        public IActionResult AddDishToCart(int cartId, int dishId)
+        [HttpPost]
+        [Route("AddDishToCart")]
+        public IActionResult AddDishToCart([FromBody]AddDishToCartModel addDishToCartModel)
         {
             try
             {
                 using (ApplicationContext db = new()) 
                 {
-                    Cart cart = db.Carts.FirstOrDefault(c=>c.Id == cartId);
-                    Dish dish = db.Dishes.Where(d => d.Id == dishId).FirstOrDefault();
-                    db.CartDishes.Add(new CartDishes { Cart = cart,DishId = dish.Id });
-                    db.CartDishes.Where(c => c.Cart.Id == cartId).FirstOrDefault().DishId = dish.Id;
+                    db.CartDishes.Add(new CartDishes { CartId =addDishToCartModel.CartId,Dish = db.Dishes.First(d=>d.Id== addDishToCartModel.DishId) });
+                    
+                    int restaurantId = db.Dishes.Include(d => d.Restaurant).First(d => d.Id == addDishToCartModel.DishId).Restaurant.Id;
+                    Cart c = db.Carts.First(c => c.Id == addDishToCartModel.CartId);
+                    c.RestaurantId = restaurantId;
+                    db.Carts.Update(c);
                     db.SaveChanges();
                 }
             }
@@ -37,10 +42,64 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(cartId);
+            return Ok(addDishToCartModel.CartId);
         }
 
-        
+        [HttpDelete]
+        [Route("RemoveDishFromCart")]
+        public IActionResult RemoveDishFromCart([FromBody]AddDishToCartModel deleteDishFromCartModel)
+        {
+            try
+            {
+                using (ApplicationContext db = new())
+                {
+                    db.CartDishes.Remove(db.CartDishes.First(cd => cd.CartId == deleteDishFromCartModel.CartId && cd.DishId == deleteDishFromCartModel.DishId));
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return Ok("Removed");
+        }
 
+        [HttpDelete]
+        [Route("/[controller]/[action]/{cartDishId}")]
+        public IActionResult RemoveDishFromCart(int cartDishId)
+        {
+            try
+            {
+                using (ApplicationContext db = new())
+                {
+                    db.CartDishes.Remove(db.CartDishes.First(dc => dc.Id == cartDishId));
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return Ok("Removed");
+        }
+
+        [HttpGet]
+        [Route("/[controller]/[action]/{cartId}")]  
+        public IActionResult GetCartDishesByCartId(int cartId) 
+        {
+            try
+            {
+                List<CartDishes> cartDishes;
+                using (ApplicationContext db = new())
+                {
+                    cartDishes = db.CartDishes.Include(cd => cd.Dish).Where(cd => cd.CartId == cartId).ToList();
+                }
+                return Json(cartDishes);
+            }
+            catch(Exception ex) 
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

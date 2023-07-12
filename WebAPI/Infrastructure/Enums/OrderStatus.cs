@@ -2,9 +2,8 @@
 {
     public enum OrderStatus
     {
-        created,
         applied,
-        cooing,
+        cooking,
         cooked,
         delivering,
         delivered

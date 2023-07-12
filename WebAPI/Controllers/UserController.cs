@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -31,14 +32,55 @@ namespace WebAPI.Controllers
             try
             {
 				User user;
-				int cartId;
+				
                 using (ApplicationContext db = new())
 				{
-					user = db.Users.First(u=>u.Email== loginModel.Email&&u.Password==loginModel.Password);
-					cartId = db.Carts.First(c => c.UserId == user.Id).Id;
+					user = db.Users.Include(u=>u.Role).First(u=>u.Email== loginModel.Email&&u.Password==loginModel.Password);
 				}
-				return Json(new { loginModel.Email, user.Id,cartId});
-			}
+
+				switch(user.Role.Name)
+				{
+					case "User":
+						{
+                            int cartId=0;
+                            using (ApplicationContext db = new())
+                            {
+								try
+								{
+                                    cartId = db.Carts.First(c => c.UserId == user.Id).Id;
+                                }
+								catch(Exception ex) 
+								{
+									db.Carts.Add(new Cart { UserId = user.Id });
+									db.SaveChanges();
+                                    cartId = db.Carts.First(c => c.UserId == user.Id).Id;
+                                }
+                                
+                            }
+                            return Json(new { loginModel.Email, user.Role, user.Id, cartId });
+                        }
+					case "Admin":
+						{
+                            return Json(new { loginModel.Email, user.Role, user.Id });
+                        }
+					case "Deliveryman":
+						{
+                            return Json(new { loginModel.Email, user.Role, user.Id });
+                        }
+					case "RestaurantAdmin":
+						{
+                            int restaurantId;
+                            using (ApplicationContext db = new())
+                            {
+                                restaurantId = db.Restaurants.First(r => r.RestaurantAdminId == user.Id).Id;
+                            }
+                            return Json(new { loginModel.Email, user.Role, user.Id, restaurantId });
+                        }
+					default:
+						return (BadRequest("Неверный логин или пароль."));
+                }
+
+            }
 			catch (Exception ex)
 			{
 			return BadRequest(ex.Message);

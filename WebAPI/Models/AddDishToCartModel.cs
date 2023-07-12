@@ -2,11 +2,11 @@
 
 namespace WebAPI.Models
 {
-    public class AddOrderModel
+    public class AddDishToCartModel
     {
         [Required]
-        public int UserID { get; set; }
+        public int CartId { get; set; }
         [Required]
-        public string Address { get; set; }
+        public int DishId { get; set; }
     }
 }

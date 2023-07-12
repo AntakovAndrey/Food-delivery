@@ -23,13 +23,12 @@ namespace WebAPI.Infrastructure
 
 		public ApplicationContext()
 		{
-			//	Database.EnsureDeleted();
 			Database.EnsureCreated();
 		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server =DESKTOP-30507DA;Initial catalog =FoodDelivery;Integrated Security = true; TrustServerCertificate=true");
+			optionsBuilder.UseSqlServer("Server=;Initial catalog =FoodDelivery;Integrated Security = true; TrustServerCertificate=true");
 			base.OnConfiguring(optionsBuilder);
 		}
 
@@ -39,8 +38,11 @@ namespace WebAPI.Infrastructure
 			.HasOne(r => r.Category);
 			modelBuilder.Entity<Order>().HasOne(o => o.Customer).WithMany().OnDelete(DeleteBehavior.Restrict);
 			modelBuilder.Entity<Order>().HasOne(o => o.Deliveryman).WithMany().OnDelete(DeleteBehavior.Restrict);
-
-			base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CartDishes>().HasOne(e => e.Dish).WithMany().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<OrderDishes>().HasOne(e => e.Dish).WithMany().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Cart>().HasOne(e => e.User).WithMany().OnDelete(DeleteBehavior.Restrict);
+    
+            base.OnModelCreating(modelBuilder);
 		}
 	}
 }
