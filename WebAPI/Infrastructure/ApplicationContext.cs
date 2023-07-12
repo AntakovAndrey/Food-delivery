@@ -28,7 +28,7 @@ namespace WebAPI.Infrastructure
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=;Initial catalog =FoodDelivery;Integrated Security = true; TrustServerCertificate=true");
+			optionsBuilder.UseSqlServer("Server =DESKTOP-30507DA;Initial catalog =FoodDelivery;Integrated Security = true; TrustServerCertificate=true");
 			base.OnConfiguring(optionsBuilder);
 		}
 
