@@ -26,11 +26,42 @@ function Login()
         if(response.ok)
         {
           let data = await response.json();
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("id", data.id);
-        localStorage.setItem("cartId", data.cartId);
-        localStorage.setItem("role", data.role.name);
-        navigate('/')
+          
+          switch(data.role.name)
+          {
+            case "User":
+              {
+                localStorage.clear()
+                localStorage.setItem("email", data.email);
+                localStorage.setItem("id", data.id);
+                localStorage.setItem("role", data.role.name);
+                localStorage.setItem("cartId", data.cartId);
+                break;
+              }
+              case "Deliveryman":
+                {
+                  localStorage.clear()
+                  localStorage.setItem("email", data.email);
+                  localStorage.setItem("id", data.id);
+                  localStorage.setItem("role", data.role.name);
+                  break;
+                }
+            case "RestaurantAdmin":
+            {
+              localStorage.clear()
+              localStorage.setItem("email", data.email);
+              localStorage.setItem("id", data.id);
+              localStorage.setItem("role", data.role.name);
+              localStorage.setItem("restaurantId", data.restaurantId);
+              break;
+            }
+          }
+          
+          navigate('/')
+        }
+        else
+        {
+          alert("Неверный логи или пароль.")
         }
       } catch (error) {
           console.log(error)

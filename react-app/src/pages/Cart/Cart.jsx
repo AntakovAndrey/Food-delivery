@@ -71,7 +71,7 @@ function Cart()
             <br/>
             <button type="submit" style={{marginTop:"15px", padding :" 8px 15px", backgroundColor:"#F78888",borderRadius:"10px", color:"#e5e4e4"}}>Оформить заказ</button>
         </form>
-            <p className={styles.total_price}>Общая стоимость: {total}руб.</p>
+            <p className={styles.total_price}>Общая стоимость:{Math.round(total,2)}руб.</p>
             <ul className={styles.product_list}>
                 {dishes.map(item => (
                     <li key={item.id} className={styles.product_item}>
