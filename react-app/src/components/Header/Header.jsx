@@ -1,17 +1,53 @@
 //import Search from '../Search/Search'
 import styles from'./Header.module.css'
 import {Link} from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 
 function Header(props)
 {
-    const menu = [
-        {title:'Корзина',
-        url:'../cart'},
-        {title:'Заказы',
-        url:'../order'}
-    ]
+    const[menu,setMenu]=useState([])
+    useState(()=>{
+        switch(localStorage.getItem("role"))
+    {
+      case "User":
+        {
+            setMenu(
+            [{title:'Корзина',
+            url:'../cart'},
+            {title:'Заказы',
+            url:'../orders'}])
+            break;
+        }
+      case "RestaurantAdmin":
+      {
+        setMenu(
+            [{title:'Актуальные заказы',
+            url:'../CurrentOrders'},])
+        break;
+      }
+      case "Deliveryman":
+      {
+          setMenu(
+            [
+            {title:'Заказы',
+            url:'../deliveryOrders'}
+            ])
+        break;
+      }
+      default:
+      {
+          setMenu(
+              [{title:'Корзина',
+              url:'../cart'},
+              {title:'Заказы',
+              url:'../orders'}])
+          break;
+      }
+    }
+    })
+    
 
+    
     return(
         <div className={styles.header}>
             <Link className={styles.header_logo} to='/' alt="На главную">{props.title}</Link>

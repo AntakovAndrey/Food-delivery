@@ -11,9 +11,9 @@ function DishCard(props)
 
     const navigate = useNavigate();
 
-    function handleAddToCart() {
+    async function handleAddToCart() {
         setQuantity(quantity + 1);
-        const response = fetch(`${process.env.REACT_APP_API_URL}/AddItemToCart`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/Cart/AddDishToCart`, {
           method: 'POST',
           mode: "cors",
           headers: { 'Content-Type': 'application/json' },
@@ -22,14 +22,18 @@ function DishCard(props)
     
         if (response.ok) {
           const data = response.json();
-          localStorage.setItem('accessToken', data.accessToken);
-          localStorage.setItem('refreshToken', data.refreshToken);
         }
 
     }
 
-    function handleRemoveFromCart() {
+    async function handleRemoveFromCart() {
         setQuantity(quantity - 1);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/Cart/RemoveDishFromCart`, {
+            method: 'DELETE',
+            mode: "cors",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({cartId:localStorage.getItem("cartId"),dishId:id})
+          });
     }
 
     return (

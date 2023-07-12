@@ -6,7 +6,7 @@ function Search()
 
     return(
         <div className={styles.container}>
-            <input type="text" placeholder={"Поиск хавчика"} className={styles.search_input}/>
+            <input type="text" placeholder={"Поиск блюд и ресторанов"} className={styles.search_input}/>
             <input type="button" value={"Поиск"} className={styles.search_button} onClick={()=>console.log("sdgdgdgds")}/>
         </div>
     )

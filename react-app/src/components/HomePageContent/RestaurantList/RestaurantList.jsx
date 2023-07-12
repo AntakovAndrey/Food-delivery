@@ -28,7 +28,7 @@ function RestaurantList(props)
                     <Card id={restaurantItem.id}
                     src={restaurantItem.photoURL} 
                     title={restaurantItem.name} 
-                    categories={['Цельсия', 'Фаренгейт']} 
+                    categories={[' ', ' ']} 
                     key={restaurantIndex}/>
             ))}
             </div>
