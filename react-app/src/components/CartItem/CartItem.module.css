@@ -1,0 +1,21 @@
+.product_item
+{
+    padding-top: 15px;
+    display: flex;
+    vertical-align: middle;
+}
+
+.product_item p{
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.product_item img{
+    height: 150px;
+    height: 150px;
+}
+
+.total_price{
+    margin-top: 15px;
+    font-size: 28px;
+}

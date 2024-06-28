@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Infrostructure.Entities
+namespace WebAPI.Infrastructure.Entities
 {
 	public class RestaurantCategory
 	{

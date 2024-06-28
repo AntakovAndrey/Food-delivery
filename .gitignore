@@ -398,11 +398,12 @@ FodyWeavers.xsd
 *.sln.iml
 
 # React environmental files
-*.env
 <<<<<<< HEAD
+*.env
+<<<<<<<<< Temporary merge branch 1
 /WebAPI/appsettings.Development.json
 /WebAPI/appsettings.json
-=======
+=========
 
 #Visual Studio files
 *.sln
@@ -410,4 +411,4 @@ appsettiings.json
 appsettiings.Development.json
 WebAPI/appsettings.Development.json
 WebAPI/appsettings.json
->>>>>>> frontend
+>>>>>>>>> Temporary merge branch 2

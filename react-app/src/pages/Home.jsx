@@ -13,7 +13,6 @@ import HomePageContent from "../components/HomePageContent/HomePageContent"
 
 function Home()
 {
-    const [isModal, setModal] = React.useState(false);
     
 
     return(
@@ -22,15 +21,6 @@ function Home()
             <div className={styles.search_container}>
                 <Search/>
             </div>
-            <button onClick={() => setModal(true)}>Click Here</button> 
-            <Modal
-                isVisible={isModal}
-                title={process.env.REACT_APP_API_URL}
-                content={<Map/>}
-                footer={<button onClick={()=>setModal(false)}>Cancel</button>}
-                onClose={() => setModal(false)}
-            />
-
             <HomePageContent/>
             <div className={styles.container}>
                 

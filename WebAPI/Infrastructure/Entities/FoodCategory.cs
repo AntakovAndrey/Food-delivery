@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Infrostructure.Entities
+namespace WebAPI.Infrastructure.Entities
 {
-	public class FoodCategory
+	public class DishCategory
 	{
 		public int Id { get; set; }
 		[Required]
 		public string? Name { get; set; }
+		public List<Dish> Dishes { get; set; }
 	}
 }

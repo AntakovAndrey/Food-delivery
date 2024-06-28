@@ -17,6 +17,7 @@ const Map = () => {
   const [lat, setLat] = useState(53.35);
   // eslint-disable-next-line
   const [zoom, setZoom] = useState(9);
+  const [marker, setMarker] = useState(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -28,6 +29,15 @@ const Map = () => {
     });
     });
 
+    const handleMapClick = (e) => {
+      if (!marker) {
+        const newMarker = new mapboxgl.Marker().setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
+        newMarker.setPopup(new mapboxgl.Popup().setHTML('<h1>Hello World!</h1>'));
+        setMarker(newMarker);
+      } else {
+        marker.setLngLat([e.lngLat.lng, e.lngLat.lat]);
+      }
+    };
   /*const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
@@ -53,7 +63,7 @@ const Map = () => {
   });*/
 
   return (
-      <div ref={mapContainer} className={styles.map_container} />
+      <div ref={mapContainer} className={styles.map_container} onClick={handleMapClick}/>
     
   );
 };

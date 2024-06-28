@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Infrostructure.Entities
+﻿namespace WebAPI.Infrastructure.Entities
 {
 	public class Role
 	{
