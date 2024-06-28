@@ -12,6 +12,7 @@ import Cart from './pages/Cart/Cart';
 import CurrentOrders from './pages/RestaurantAdmin/Orders/CurrentOrders/CurrentOrders';
 import Orders from './pages/Orders/Orders';
 import DeliveryOrders from './pages/DeliveryOrders/DeliveryOrders'
+import Dashboard from './pages/RestaurantDashboard/Dashboard'
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="/restaurant/:id" element={<Dishes/>} />
         <Route path="/currentOrders" element={<CurrentOrders/>} />
         <Route path="/deliveryOrders" element={<DeliveryOrders/>} />
+        
+        <Route path="/dashBoard" element={<Dashboard/>} />
       </Routes>
     </div>
   );
