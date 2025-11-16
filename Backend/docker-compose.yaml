@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  user-service:
+
+  catalog-service
+
+  ordering-service:
+
+  basket-service:
