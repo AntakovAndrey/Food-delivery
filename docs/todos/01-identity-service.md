@@ -9,17 +9,17 @@
 
 - [x] Создать проект ASP.NET Core WebAPI
 - [x] Настроить структуру папок (Domain, Application, Infrastructure, API)
-- [ ] Добавить необходимые NuGet пакеты:
-  - [ ] Microsoft.EntityFrameworkCore
-  - [ ] Npgsql.EntityFrameworkCore.PostgreSQL
-  - [ ] Microsoft.AspNetCore.Authentication.JwtBearer
-  - [ ] BCrypt.Net-Next (или Argon2)
-  - [ ] FluentValidation
-  - [ ] Serilog
-  - [ ] Swashbuckle.AspNetCore
-- [ ] Настроить appsettings.json
-- [ ] Создать Dockerfile
-- [ ] Настроить docker-compose для сервиса
+- [X] Добавить необходимые NuGet пакеты:
+  - [X] Microsoft.EntityFrameworkCore
+  - [X] Npgsql.EntityFrameworkCore.PostgreSQL
+  - [X] Microsoft.AspNetCore.Authentication.JwtBearer
+  - [X] BCrypt.Net-Next (или Argon2)
+  - [X FluentValidation
+  - [X] Serilog
+  - [x] Swashbuckle.AspNetCore
+- [X] Настроить appsettings.json
+- [x] Создать Dockerfile
+- [X] Настроить docker-compose для сервиса
 
 ---
 
