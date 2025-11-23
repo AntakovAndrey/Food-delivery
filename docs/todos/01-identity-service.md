@@ -7,15 +7,14 @@
 
 ## 1. Настройка проекта
 
-- [ ] Создать проект ASP.NET Core WebAPI
-- [ ] Настроить структуру папок (Domain, Application, Infrastructure, API)
+- [x] Создать проект ASP.NET Core WebAPI
+- [x] Настроить структуру папок (Domain, Application, Infrastructure, API)
 - [ ] Добавить необходимые NuGet пакеты:
   - [ ] Microsoft.EntityFrameworkCore
   - [ ] Npgsql.EntityFrameworkCore.PostgreSQL
   - [ ] Microsoft.AspNetCore.Authentication.JwtBearer
   - [ ] BCrypt.Net-Next (или Argon2)
   - [ ] FluentValidation
-  - [ ] AutoMapper
   - [ ] Serilog
   - [ ] Swashbuckle.AspNetCore
 - [ ] Настроить appsettings.json
