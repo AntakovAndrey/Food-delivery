@@ -14,7 +14,7 @@
   - [X] Npgsql.EntityFrameworkCore.PostgreSQL
   - [X] Microsoft.AspNetCore.Authentication.JwtBearer
   - [X] BCrypt.Net-Next (или Argon2)
-  - [X FluentValidation
+  - [X] FluentValidation
   - [X] Serilog
   - [x] Swashbuckle.AspNetCore
 - [X] Настроить appsettings.json
@@ -25,36 +25,33 @@
 
 ## 2. Domain Layer
 
-- [ ] Создать сущности:
-  - [ ] User (Id, Name, Email, PasswordHash, EmailVerified, CreatedAt, UpdatedAt)
-  - [ ] Role (Id, Name, Permissions)
-  - [ ] UserRole (связь многие-ко-многим)
-  - [ ] RefreshToken (Id, UserId, Token, ExpiresAt, IsRevoked)
-  - [ ] Address (Id, UserId, Street, City, PostalCode, Country, IsDefault)
-- [ ] Создать Value Objects:
-  - [ ] Email
-  - [ ] Password
-- [ ] Создать Domain Events:
-  - [ ] UserRegisteredEvent
-  - [ ] UserEmailVerifiedEvent
-  - [ ] PasswordChangedEvent
-- [ ] Создать исключения:
-  - [ ] UserNotFoundException
-  - [ ] InvalidCredentialsException
-  - [ ] EmailAlreadyExistsException
-  - [ ] InvalidTokenException
+- [x] Создать сущности:
+  - [x] User (Id, Name, Email, PasswordHash, EmailVerified, CreatedAt, UpdatedAt)
+  - [x] Role (Id, Name, Permissions)
+  - [x] UserRole (связь многие-ко-многим)
+  - [x] RefreshToken (Id, UserId, Token, ExpiresAt, IsRevoked)
+  - [x] Address (Id, UserId, Street, City, PostalCode, Country, IsDefault)
+- [x] Создать Domain Events:
+  - [x] UserRegisteredEvent
+  - [x] UserEmailVerifiedEvent
+  - [x] PasswordChangedEvent
+- [X] Создать исключения:
+  - [X] UserNotFoundException
+  - [X] InvalidCredentialsException
+  - [X] EmailAlreadyExistsException
+  - [X] InvalidTokenException
 
 ---
 
 ## 3. Infrastructure Layer
 
-- [ ] Настроить DbContext (ApplicationDbContext)
+- [x] Настроить DbContext (AppDbContext)
 - [ ] Создать миграции Entity Framework
-- [ ] Настроить репозитории:
-  - [ ] IUserRepository
-  - [ ] IRoleRepository
-  - [ ] IRefreshTokenRepository
-  - [ ] IAddressRepository
+- [x] Настроить репозитории:
+  - [x] IUserRepository
+  - [x] IRoleRepository
+  - [x] IRefreshTokenRepository
+  - [x] IAddressRepository
 - [ ] Реализовать репозитории
 - [ ] Настроить JWT генерацию токенов
 - [ ] Создать сервис для хеширования паролей (IPasswordHasher)
@@ -153,7 +150,7 @@
 
 ## 8. Тестирование
 
-- [ ] Unit тесты для Domain логики
+- [x] Unit тесты для Domain логики
 - [ ] Unit тесты для Application сервисов
 - [ ] Integration тесты для API endpoints
 - [ ] Тесты безопасности (валидация токенов, защита от атак)
